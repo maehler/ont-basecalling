@@ -1,0 +1,8 @@
+name: aspen-ont
+channels:
+    - bioconda
+    - defaults
+dependencies:
+    - seqtk=1.3
+    - samtools=1.9
+

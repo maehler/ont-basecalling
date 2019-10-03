@@ -1,0 +1,6 @@
+raw/
+fast5/
+fasta/
+.snakemake/
+guppy_output/
+logs/
