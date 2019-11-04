@@ -9,8 +9,8 @@ __default__:
     error: "logs/{rule}.{wildcards}.%j.err"
 
 basecalling:
-    partition: nolimit
-    time: 14400
+    partition: core
+    time: 2880
     ntasks: 8
     cpus_per_task: 4
     time: 2880

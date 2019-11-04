@@ -1,4 +1,5 @@
 raw:
-    - "/mnt/picea/storage/data/aspseq/nstreet/ONT/ASp30r2/asp30r2/20190923_1539_MN23296_FAH85875_a550bb6a/fast5"
-    - "/mnt/picea/storage/data/aspseq/nstreet/ONT/Aspen3020190923/asp30/20190923_1249_MN23296_FAH85875_83216383/fast5"
-    - "/mnt/picea/storage/data/aspseq/nstreet/ONT/asp_f20190923/asp30r/20190923_1410_MN23296_FAH85875_35e06f40/fast5"
+    run1: "/mnt/picea/storage/data/aspseq/nstreet/ONT/Aspen3020190923/asp30/20190923_1249_MN23296_FAH85875_83216383/fast5"
+    run2: "/mnt/picea/storage/data/aspseq/nstreet/ONT/asp_f20190923/asp30r/20190923_1410_MN23296_FAH85875_35e06f40/fast5"
+    run3: "/mnt/picea/storage/data/aspseq/nstreet/ONT/ASp30r2/asp30r2/20190923_1539_MN23296_FAH85875_a550bb6a/fast5"
+    run4: "/mnt/picea/storage/data/aspseq/nstreet/ONT/asp30/asp30ed/20191002_1257_MN23296_FAH85729_f30f511d/fast5"
