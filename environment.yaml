@@ -1,10 +1,8 @@
 name: aspen-ont
 channels:
-    - conda-forge
     - bioconda
     - defaults
 dependencies:
     - seqtk=1.3
     - samtools=1.9
-    - ont-fast5-api=1.4.8
 
