@@ -2,9 +2,12 @@ import pandas as pd
 
 configfile: 'config.yaml'
 
-localrules: all, link_fast5, fastq_to_fasta, merge_fasta
+localrules: all, link_fast5, fastq_to_fasta, merge_run_fasta
 
-fast5_files = pd.read_table('doc/raw_reads.tsv').set_index('filename', drop=False)
+fast5_dfs = []
+for fname in config['raw']:
+    fast5_dfs.append(pd.read_table(fname).set_index('filename', drop=False))
+fast5_files = pd.concat(fast5_dfs)
 
 def aggregate_fasta_input(wildcards):
     checkpoint_output = os.path.dirname(checkpoints.basecalling.get(**wildcards).output[0])
