@@ -12,9 +12,9 @@ fast5_files = pd.concat(fast5_dfs)
 def aggregate_fasta_input(wildcards):
     checkpoint_output = checkpoints.basecalling.get(**wildcards).output[0]
     print(checkpoint_output)
-    gwc = glob_wildcards(os.path.join(checkpoint_output, 'fastq_runid_{run_id}_{batch_counter}_{part}.fastq'))
+    gwc = glob_wildcards(os.path.join(checkpoint_output, 'fastq_runid_{run_id}_{part}.fastq'))
     print(gwc)
-    return expand('fasta/{run}/fastq_runid_{run_id}_{batch_counter}_{part}.fa', zip,
+    return expand('fasta/{run}/fastq_runid_{run_id}_{part}.fa', zip,
                   run=[os.path.basename(checkpoint_output) for _ in gwc.run_id],
                   run_id=gwc.run_id,
                   batch_counter=gwc.batch_counter,
@@ -38,13 +38,11 @@ checkpoint basecalling:
     input: lambda wildcards: \
         expand('fast5/{run}/{filename}', \
                run=wildcards.run, \
-               filename=[x for x, y in zip(fast5_files.filename, fast5_files.run) if y == wildcards.run])
+               filename=fast5_files.filename[fast5_files.run == wildcards.run])
     output: directory('guppy_output/{run}')
-    wildcard_constraints:
-        run='run\d+'
     params:
-        flowcell='FLO-MIN106',
-        kit='SQK-RAD004',
+        flowcell=lambda wildcards: fast5_files.flowcell[fast5_files.run == wildcards.run][0],
+        kit=lambda wildcards: fast5_files.chemistry[fast5_files.run == wildcards.run][0],
         parallel_callers=8
     threads: 4
     shell: 'guppy_basecaller '
