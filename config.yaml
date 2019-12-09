@@ -1,4 +1,2 @@
 raw:
-    - metadata/pine1.tsv
-    - metadata/pine2.tsv
-    - metadata/pine3.tsv
+    - metadata/example.tsv

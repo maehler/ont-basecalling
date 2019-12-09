@@ -4,3 +4,5 @@ fasta/
 .snakemake/
 guppy_output/
 logs/
+metadata/*
+!metadata/example.tsv
