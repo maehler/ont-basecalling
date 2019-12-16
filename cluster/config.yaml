@@ -8,10 +8,9 @@ __default__:
     output: "logs/{rule}.{wildcards}.%j.out"
     error: "logs/{rule}.{wildcards}.%j.err"
 
-basecalling:
-    partition: core
-    time: 2880
-    ntasks: 8
-    cpus_per_task: 4
-    time: 2880
-
+gpu_basecalling:
+    partition: gpu
+    time: 360
+    mem: 30000
+    gres: gpu:0
+    ntasks: 12
