@@ -5,5 +5,5 @@ cluster-status: "slurm-status.py"
 max-jobs-per-second: 1
 max-status-checks-per-second: 10
 local-cores: 1
-jobs: 100
+jobs: 1000
 use-conda: true
