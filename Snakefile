@@ -2,6 +2,10 @@ import pandas as pd
 
 configfile: 'config.yaml'
 
+shell.executable('bash')
+shell.prefix('source {module_init}; set -euo pipefail; ' \
+             .format(module_init=config['cluster']['module_init']))
+
 localrules: all, link_fast5, fastq_to_fasta, merge_run_fasta
 
 fast5_dfs = []

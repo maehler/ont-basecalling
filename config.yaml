@@ -1,2 +1,5 @@
 raw:
     - metadata/example.tsv
+
+cluster:
+    module_init: 'scripts/modules.sh'
