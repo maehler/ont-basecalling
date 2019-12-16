@@ -23,7 +23,18 @@ def aggregate_fasta_input(wildcards):
                   part=gwc.part)
 
 rule all:
-    input: expand('fasta/{run}.fa', run=set(fast5_files.run))
+    input: expand('fasta/{run}.fa.gz', run=set(fast5_files.run))
+
+rule compress_fastaq:
+    '''
+    Compress a fasta or fastq file using bgzip.
+    '''
+    input: '{fastaq_file}'
+    output: '{fastaq_file}.gz'
+    wildcard_constraints:
+        fasta_file=r'\.(fa|fasta|fq|fastq)$'
+    conda: 'environment.yaml'
+    shell: 'bgzip {input}'
 
 rule merge_run_fasta:
     input: aggregate_fasta_input

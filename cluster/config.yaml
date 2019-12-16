@@ -8,6 +8,10 @@ __default__:
     output: "logs/{rule}.{wildcards}.%j.out"
     error: "logs/{rule}.{wildcards}.%j.err"
 
+compress_fastaq:
+    output: "logs/{rule}.%j.out"
+    error: "logs/{rule}.%j.err"
+
 gpu_basecalling:
     partition: gpu
     time: 360
